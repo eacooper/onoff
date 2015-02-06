@@ -51,8 +51,8 @@ end
 figure; hold on;
 y = [cell2mat({on.sum}) ; cell2mat({off.sum})]';
 b = bar(y);
-b(1).FaceColor = [ 206 200 104 ]/255;
-b(2).FaceColor = [ 51 127 186 ]/255;
+set(b(1), 'FaceColor', [ 206 200 104 ]/255);
+set(b(2), 'FaceColor', [ 51 127 186 ]/255);
 
 set(gca,'XTick',[1:4],'XTickLabel',rgcs.cell_type);
 ylabel('Response Sum'); xlabel('RGC type');

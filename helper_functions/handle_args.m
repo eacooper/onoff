@@ -50,7 +50,7 @@ if ~exist('appix','var')
         appix = 0.5;
         
     else                                % just assume 1 arcminute per pixel
-        warning('Unknown image resolution, assuming 1 arcminute per pixel');
+        display('Unknown image resolution, assuming 1 arcminute per pixel');
         appix = 1;
         
     end
