@@ -1,10 +1,20 @@
 function show_results(im,on,off,rgcs,fltrs)
 %
+% Visualize results of RGC modeling
 %
+% INPUT:
+%
+%       im:     image matrix of linear intensity values
+%       on:     structure containing ON pathway RGC responses
+%       off:    structure contraining OFF pathway RGC responses
+%       rgcs:   structure containng RGC model info
+%       fltrs:  structure containing different filters for each RGC type
+%
+% Emily Cooper, 2015
+
 
 % plot RGC receptive fields
 figure; hold on;
-
 for r = 1:length(rgcs.cell_type)
     
     plot_rgc_rf(r,[rgcs.cell_type{r} ' ON'],fltrs(r).ON.cntr,fltrs(r).ON.sur)
@@ -25,9 +35,8 @@ axis square; box on;
 
 % show ON/OFF images
 figure; hold on;
-
-edges   = ceil(size(fltrs(1).ON.cntr,1)/2);
-im   = im(edges+1:end-edges,edges+1:end-edges);   % crop edges by 1/2 filter width
+edges   = ceil(size(fltrs(1).ON.cntr,1)/2);          % crop original image to have same dims as RGC output
+im      = im(edges+1:end-edges,edges+1:end-edges);   % crop edges by 1/2 filter width
 show_image([1:8],[],im)
 
 for r = 1:length(rgcs.cell_type)
@@ -37,9 +46,9 @@ for r = 1:length(rgcs.cell_type)
     
 end
 
+
 % plot sums of ON and OFF responses
 figure; hold on;
-
 y = [cell2mat({on.sum}) ; cell2mat({off.sum})]';
 b = bar(y);
 b(1).FaceColor = [ 206 200 104 ]/255;
@@ -52,7 +61,7 @@ set(bl,'Location','NorthWest');
 box on;
 
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function plot_rgc_rf(plt,ttl,cntr,sur)
 
 subplot(2,4,plt); hold on;
