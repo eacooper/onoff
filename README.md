@@ -7,7 +7,7 @@ Main function is onoff.m:
 % Separate predictions are generated for foveal and peripheral cells in the
 % P and M pathways
 %
-% Example call: [on, off] = onoff('file','testimage1.png','arcminperpixel',1)
+% Example call: [on, off, rgcs] = onoff('file','checker.png','arcminperpixel',1)
 %
 % INPUT: If called with no arguments, you will be prompted to select an image
 % file and the image viewing resolution will be assumed to be 1 arcminute
@@ -21,11 +21,15 @@ Main function is onoff.m:
 %       image pixel
 %
 %
-% Note that image pixel values are assumed to be linear with world light
+% Note that image element values are assumed to be linear with world light
 % intensity. This means that loading an image file directly from a camera
 % will likely produce spurious predictions due to nonlinearities introduced in
 % the image encoding. Loading a bitmap that has been designed for display
-% on a linearized monitor, however, should produce meaningful predictions.
+% on a linearized monitor via a LUT, however, should produce meaningful 
+% predictions. File types can be anything that MATLAB's imread can handle, 
+% as well as .mat files containing a single variable that is a matrix
+% containing the image. Images of matrices containing 3 channels will be
+% assumed to be RGB and a luminance conversion will be applied.
 %
 % For convenience, the auxillary load_images function can handle images that 
 % come from the Van Hateren Natural Image Dataset
@@ -59,4 +63,4 @@ Main function is onoff.m:
 % Emily Cooper, 2015
 %
 % Accompanies: Cooper, E.A. & Norcia, A.M. Natural Scene Statistics and
-% Early Visual Processing Predict Dark and Bright Cortial Asymmetries
+% Early Visual Processing Can Predict Dark and Bright Cortial Asymmetries
