@@ -12,7 +12,7 @@ Example call: [on, off, rgcs] = onoff('file','checker.png','arcminperpixel',1)
 
 INPUT: If called with no arguments, you will be prompted to select an image
 file and the image viewing resolution will be assumed to be 1 arcminute
-per pixel.(
+per pixel.
 
       If the 'file' argument is supplied, it will instead try to load that 
       file from the current working directory       
