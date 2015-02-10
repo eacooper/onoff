@@ -55,7 +55,12 @@ function [on, off, rgcs] = onoff(varargin)
 %
 % Also produces plots illustrating the RGC models used, images of the
 % RGC response magnitudes for P and M pathways, and a bar plot of the summed 
-% responses for ON and OFF cells in each population (4 populations total)
+% responses for ON and OFF cells in each population (4 populations total, 
+% plus a weighted average). Note that the "Weighted Ave" bars are the result 
+% of giving the P pathway (combined foveal and peripheral) 9x more weight than 
+% the M pathway (also combined). This manner of combination was used in the
+% initial modeling paper, but the user may wish to modify this calculation
+% for their own purposes.
 %
 % Emily Cooper, 2015
 %
