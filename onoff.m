@@ -64,18 +64,18 @@ function [on, off, rgcs] = onoff(varargin)
 %
 % Emily Cooper, 2015
 %
-% Accompanies: Cooper, E.A. & Norcia, A.M. Predicting Cortical Dark/bright 
+% Please cite accompanying paper: Cooper, E.A. & Norcia, A.M. Predicting Cortical Dark/bright 
 % Asymmetries from Natural Image Statistics and Early Visual Transforms
 
 
-addpath(genpath('.'));                              % add subfolders to the path
-[fname, appix]  = handle_args(varargin{:});         % handle the input args and load defaults 
-[im]            = load_image(fname);                % load in the selected image
-rgcs            = load_croner_kaplan_rgc_info;      % load in the parameters for modeling the spatial receptive fields of RGCs
-fltrs           = make_rgc_filters(rgcs, appix);    % make difference of Gaussian filters to model RGC receptive fields
-on              = filter_image(im,fltrs,'ON');      % apply the RGC models to the image matrix for ON pathway
-off             = filter_image(im,fltrs,'OFF');     % apply the RGC models to the image matrix for OFF pathway
-show_results(im,on,off,rgcs,fltrs);                 % visualize results
+addpath([pwd '/helper_functions:' pwd '/example_images']);  % add subfolders to the path
+[fname, appix]  = handle_args(varargin{:});                 % handle the input args and load defaults 
+[im]            = load_image(fname);                        % load in the selected image
+rgcs            = load_croner_kaplan_rgc_info;              % load in the parameters for modeling the spatial receptive fields of RGCs
+fltrs           = make_rgc_filters(rgcs, appix);            % make difference of Gaussian filters to model RGC receptive fields
+on              = filter_image(im,fltrs,'ON');              % apply the RGC models to the image matrix for ON pathway
+off             = filter_image(im,fltrs,'OFF');             % apply the RGC models to the image matrix for OFF pathway
+show_results(im,on,off,rgcs,fltrs);                         % visualize results
 
     
     

@@ -17,7 +17,7 @@ function [im_new,crf]  = apply_crf(im,fltrs,path)
 %
 %
 % CRFs are modeled as cumulative Gaussian to approximate those measured in
-% the primate guinea pig retina
+% the primate and guinea pig retina
 %
 % SOURCE: 
 % Zaghloul K.A., Boahen K., Demb J.B. (2003) Different circuits for on 
