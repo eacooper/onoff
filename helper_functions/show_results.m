@@ -49,12 +49,15 @@ end
 
 % plot sums of ON and OFF responses
 figure; hold on;
-y = [cell2mat({on.sum}) ; cell2mat({off.sum})]';
+y       = [cell2mat({on.sum}) ; cell2mat({off.sum})]';                          % concat sum of on and off activity for each pathway
+y(5,1)  = (9*sum(cell2mat({on(1:2).sum})) + sum(cell2mat({on(3:4).sum})))/20;   % weighted average bars with 9x more P pathway ...
+y(5,2)  = (9*sum(cell2mat({off(1:2).sum})) + sum(cell2mat({off(3:4).sum})))/20; % fovea and perihpery treated equally
+
 b = bar(y);
 set(b(1), 'FaceColor', [ 206 200 104 ]/255);
 set(b(2), 'FaceColor', [ 51 127 186 ]/255);
 
-set(gca,'XTick',[1:4],'XTickLabel',rgcs.cell_type);
+set(gca,'XTick',[1:5],'XTickLabel',[rgcs.cell_type 'Weighted Ave'] );
 ylabel('Response Sum'); xlabel('RGC type');
 bl = legend(b,'ON','OFF');
 set(bl,'Location','NorthWest');

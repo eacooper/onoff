@@ -44,5 +44,3 @@ for j = 1:length(cont);
     mc(j)   = (((bg.*cont(j)) + bg) - bg)/(((bg.*cont(j)) + bg) + bg);
     
 end
-
-keyboard

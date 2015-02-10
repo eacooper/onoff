@@ -32,7 +32,7 @@ as well as .mat files containing a single variable that is a matrix
 containing the image. Images of matrices containing 3 channels will be
 assumed to be RGB and a luminance conversion will be applied.
 
-For convenience, the auxillary load_images function can handle images that 
+For convenience, the auxilary load_images function can handle images that 
 come from the Van Hateren Natural Image Dataset
 (http://bethgelab.org/datasets/vanhateren/)
 
@@ -63,5 +63,4 @@ responses for ON and OFF cells in each population (4 populations total)
 
 Emily Cooper, 2015
 
-Please cite accompanying paper: Cooper, E.A. & Norcia, A.M. Natural Scene Statistics and
-Early Visual Processing Can Predict Dark and Bright Cortial Asymmetries
+Please cite accompanying paper: Cooper, E.A. & Norcia, A.M. Predicting Cortical Dark/bright Asymmetries from Natural Image Statistics and Early Visual Transforms
