@@ -44,7 +44,7 @@ else                                        % just try to load in image file
     else                                                % otherwise, try to load it as an image
         
         try
-            im = flipud(double(imread(fname))./255);
+            im = flipdim(double(imread(fname))./255,1);
         catch
             error('Unhandled file type, add this type to load_image.m');
         end

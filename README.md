@@ -63,5 +63,5 @@ responses for ON and OFF cells in each population (4 populations total)
 
 Emily Cooper, 2015
 
-Accompanies: Cooper, E.A. & Norcia, A.M. Natural Scene Statistics and
+Please cite accompanying paper: Cooper, E.A. & Norcia, A.M. Natural Scene Statistics and
 Early Visual Processing Can Predict Dark and Bright Cortial Asymmetries

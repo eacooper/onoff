@@ -28,7 +28,7 @@ spot_area                       = (cen - sur)/max(cen(:) - sur(:));    % normali
 spot_area(spot_area < 0.5)      = 0;                                   % fill spot with diameter of FWHM
 spot_area(spot_area >= 0.5)     = 1;
 
-bg  =  500;     % background illumination level
+bg  =  0.5;     % background illumination level
 
 % for each Weber contrast
 for j = 1:length(cont);
@@ -41,4 +41,8 @@ for j = 1:length(cont);
     imsur   = sum(spot(:).*sur(:));           	% surround filtered
     resp(j) = (imcen - imsur)./imsur;           % combine center - surround, and divisive normalization
     
+    mc(j)   = (((bg.*cont(j)) + bg) - bg)/(((bg.*cont(j)) + bg) + bg);
+    
 end
+
+keyboard
