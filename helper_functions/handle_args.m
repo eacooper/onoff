@@ -1,4 +1,4 @@
-function [fname, appix] = handle_args(varargin)
+function [fname, appix, plotIt] = handle_args(varargin)
 %
 % handle the input arguments for onoff function
 %
@@ -12,6 +12,7 @@ function [fname, appix] = handle_args(varargin)
 %       fname:      name of file to load, should include full path
 %       appix:      resolution of image file, number of visual arcminutes
 %                   subtended by a single pixel
+%       plotIt:     1 for plotting, 0 for not
 %
 % Emily Cooper, 2015
 
@@ -28,6 +29,9 @@ for n = 1:length(varargin)
             % resolution in arcminutes per pixel was given
             appix = varargin{n+1};
             
+        case 'plotIt'
+            % resolution in arcminutes per pixel was given
+            plotIt = varargin{n+1};
     end
 end
 
@@ -45,7 +49,7 @@ if ~exist('appix','var')
     
     if strfind(fname,'.iml')            % Van Hateren dataset IML images from Bethge lab website
         appix = 1;
-
+        
     elseif strfind(lower(fname),'mcg')  % McGill dataset images
         appix = 0.5;
         
@@ -54,4 +58,9 @@ if ~exist('appix','var')
         appix = 1;
         
     end
+end
+
+% by default don't show plots
+if ~exist('plotIt','var')
+    plotIt = 0;
 end

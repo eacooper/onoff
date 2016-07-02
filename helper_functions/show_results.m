@@ -78,8 +78,9 @@ function show_image(plt,ttl,im)
 
 subplot(4,4,plt); hold on;
 title(ttl);
-imagesc(im);
+imagesc(flipud(im));
 colormap(gray);
+caxis([0 1]);
 axis image off;
 
 

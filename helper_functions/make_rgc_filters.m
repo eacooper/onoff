@@ -26,6 +26,8 @@ size = round(1.5*1.1*rgcs.sur_scale*max(rgcs.cntr_rad/appix));
 % for each RGC cell type
 for r = 1:length(rgcs.cell_type);
 
+    fltrs(r).type = rgcs.cell_type{r};
+    
     % convert central radius from arcminutes into pixels
     cntr_rad_pix = rgcs.cntr_rad(r)/appix;
 
